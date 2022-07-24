@@ -35,12 +35,15 @@
       <a href="index.html">Tag Cloud</a> 
       <a href="index.html">Text Illate</a> 
       <a href="1.html">Slick Slider</a>
-      <a href="#">Tag 3</a>
-      <a href="#">Tag 3</a>
-      <a href="#">Tag 3</a>
-      <a href="#">Tag 3</a>
-      <a href="#">Tag 3</a>
-      <a href="#">Tag 3</a>
+      <a href="1.html">Animated Modal</a>
+      <a href="1.html">LightBox</a>
+      <a href="1.html">Count Me</a>
+      <a href="1.html">Preloader</a>
+      <a href="2.html">Owl Carousel</a>
+      <a href="2.html">AOS</a>
+      <a href="2.html">Jarallax</a>
+      <a href="2.html">Scroll Indicator</a>
+      <a href="2.html">Full Page Scroll</a>
     </div>
   <!-- container end -->
   </div>
@@ -54,5 +57,75 @@
     <script src="vendor/text-illate/js/textillate.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/scripts.js"></script>
+    <script>
+      //  tagCloud
+    $(".tag-cloud").tagCloud({
+        minColor: "#000",
+        maxColor: "#fff",
+        minSize: 40,
+        maxSize: 150,
+        minFontSize: 14,
+        currentClass: "tag-cloud-enter",
+        debug: false,
+        offset: [0, 0, 0, 0],
+        radius: "50%",
+        bgColor: "",
+        color: "",
+        colorType: 16,
+        method: "area",
+        anim: {
+            name: "bomb",
+            time: "500",
+            delay: "50"
+        },
+        enter: function (opt, id, pos, posArr, posRc, W, H, opts) {
+            console.log("Event:mouseenter");
+        },
+        leave: function (opt, id, pos, posArr, rc, W, H, opts) {
+            console.log("Event:mouseleave");
+        },
+        start: function (opts) {
+            console.log("0");
+        },
+        printing: function (opts) {
+            console.log("1");
+        },
+        printed: function (opts) {
+            console.log("2");
+        },
+        addEvented: function (opts) {
+            console.log("3");
+        },
+        animed: function (opts) {
+            console.log("4");
+        },
+        complate: function (opts) {
+            console.log("5");
+        }
+    });
+
+    // Text Illate
+
+    $('.text_illate').textillate({
+        in: {
+            effect: 'fadeInLeftBig',
+            delayScale: 1.5,
+            delay: 50,
+            sync: false,
+            reverse: false,
+            shuffle: false,
+            callback: function () { }
+        },
+        out: {
+            effect: 'hinge',
+            delayScale: 1.5,
+            delay: 50,
+            sync: false,
+            reverse: false,
+            shuffle: true,
+            callback: function () { }
+        },
+    });
+    </script>
   </body>
 </html>

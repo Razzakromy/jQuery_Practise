@@ -1,128 +1,56 @@
-$(function () {
-    $("#draggable").draggable();
-    $("#droppable").droppable({
-        drop: function (event, ui) {
-            $(this)
-                .addClass("ui-state-highlight")
-                .find("p")
-                .html("Dropped!");
+// js
+// Scroll
+$(window).scroll(function () {
+    var wintop = $(window).scrollTop(), docheight =
+        $(document).height(), winheight = $(window).height();
+    var scrolled = (wintop / (docheight - winheight)) * 100;
+    $('.scroll-line').css('width', (scrolled + '%'));
+});
+// owl
+var owl = $('.owl-carousel');
+      owl.owlCarousel({
+        margin: 10,
+        loop: true,
+        responsive: {
+          0: {
+            items: 1
+          },
+          600: {
+            items: 2
+          },
+          1000: {
+            items: 3
+          }
         }
-    });
+      })
+
+// AOS
+AOS.init({
+    easing: 'ease-in-out-sine',
 });
 
-$(function () {
-    $("#resizable").resizable();
+setInterval(addItem, 300);
+
+var itemsCounter = 1;
+var container = document.getElementById('aos-demo');
+
+function addItem() {
+    if (itemsCounter > 42) return;
+    var item = document.createElement('div');
+    item.classList.add('aos-item');
+    item.setAttribute('data-aos', 'fade-up');
+    item.innerHTML = '<div class="aos-item__inner"><h3>' + itemsCounter + '</h3></div>';
+    container.appendChild(item);
+    itemsCounter++;
+}
+
+// Parallax
+/* init Jarallax */
+  
+jarallax(document.querySelectorAll(".jarallax"));
+
+jarallax(document.querySelectorAll(".jarallax-keep-img"), {
+    keepImg: true,
 });
 
-$( function() {
-    $( "#selectable" ).selectable();
-  } );
 
-  $( function() {
-    $( "#sortable" ).sortable();
-  } );
-
-  $( function() {
-    $( "#accordion" ).accordion();
-  } );
-
-  $( function() {
-    var availableTags = [
-      "Abu Saleh",
-      "Abdullah",
-      "Barek",
-      "Shakil",
-      "Shoikot",
-      "Ismail",
-      "Nuru",
-      "Romy",
-      "Kobir",
-      "Korim",
-      "Monnas",
-      "Madhu",
-      "Khalek",
-      "Sharif",
-      "Johir",
-      "Atik",
-      "Juwel",
-      "Monju",
-      "Fahim",
-      "Nayeem",
-      "Munni"
-    ];
-    $( "#tags" ).autocomplete({
-      source: availableTags
-    });
-  } );
-
-  $( function() {
-    $( "input" ).checkboxradio();
-  } );
-
-  $( function() {
-    $( ".controlgroup" ).controlgroup()
-    $( ".controlgroup-vertical" ).controlgroup({
-      "direction": "vertical"
-    });
-  } );
-
-  $( function() {
-    $( "#datepicker" ).datepicker();
-  } );
-
-  $( function() {
-    $( "#dialog" ).dialog();
-  } );
-
-  $( function() {
-    $( "#menu" ).menu();
-  } );
-
-  $( function() {
-    $( "#progressbar" ).progressbar({
-      value: 37
-    });
-  } );
-
-  $( function() {
-    $( "#speed" ).selectmenu();
- 
-    $( "#files" ).selectmenu();
- 
-    $( "#number" )
-      .selectmenu()
-      .selectmenu( "menuWidget" )
-        .addClass( "overflow" );
- 
-    $( "#salutation" ).selectmenu();
-  } );
-  $( function() {
-    $( "#slider" ).slider();
-  } );
-
-  $( function() {
-    var spinner = $( "#spinner" ).spinner();
- 
-    $( "#disable" ).on( "click", function() {
-      if ( spinner.spinner( "option", "disabled" ) ) {
-        spinner.spinner( "enable" );
-      } else {
-        spinner.spinner( "disable" );
-      }
-    });
-    $( "#destroy" ).on( "click", function() {
-      if ( spinner.spinner( "instance" ) ) {
-        spinner.spinner( "destroy" );
-      } else {
-        spinner.spinner();
-      }
-    });
-    $( "#getvalue" ).on( "click", function() {
-      alert( spinner.spinner( "value" ) );
-    });
-    $( "#setvalue" ).on( "click", function() {
-      spinner.spinner( "value", 5 );
-    });
- 
-    $( "button" ).button();
-  } );
